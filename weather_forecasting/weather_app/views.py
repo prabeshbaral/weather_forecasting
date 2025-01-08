@@ -71,20 +71,3 @@ def get_name(request):
         form=AddressForm()
         return render(request,"master.html",{'form':form})            
 
-    # # if a GET (or any other method) we'll create a blank form
-    # else:
-    #     form=AddressForm()
-    # return render(request, "name.html", {"name":name,"form": form})
-
-
-
-# url = "https://open-weather13.p.rapidapi.com/city/landon/EN"
-
-# headers = {
-# 	"x-rapidapi-key": "0cdbcbece7msh1cdeccaa8e4efb6p16ea81jsn745d705f12ff",
-# 	"x-rapidapi-host": "open-weather13.p.rapidapi.com"
-# }
-
-# response = requests.get(url, headers=headers)
-
-# print(response.json())
