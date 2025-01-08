@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns=[
-    path('info/',views.abc, name='abc')
+    path('name',views.get_name, name="get_name")
+
 ]
