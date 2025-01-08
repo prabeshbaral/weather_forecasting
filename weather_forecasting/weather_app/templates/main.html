@@ -1,12 +1,88 @@
+
 {% extends "master.html" %}
 
-{%block titile%}location{%endblock%}
+{% block title %}Location{% endblock %}
 
-<form  method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-{% block content%}
-<p>{{name}}</p>
-{%endblock%}
+
+
+{% block content %}
+<style>
+    .weather-container {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .weather-item {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  
+    .weather-item strong {
+      font-weight: bold;
+      color: #333;
+    }
+  
+    h2 {
+      color: #2c3e50;
+    }
+  
+    p {
+      font-size: 14px;
+      color: #7f8c8d;
+    }
+  </style>
+  
+  {% if name %}
+    <h2>Weather Information for {{ name }}</h2>
+  {% endif %}
+  
+  {% if weather_data %}
+    <div class="weather-container">
+      <div class="weather-item">
+        <strong>Weather Condition:</strong> {{ weather_data.weather_description|capfirst }}
+      </div>
+
+      <div class="weather-item">
+        <strong>Temperature:</strong> {{ weather_data.temp_celsius }}°F (Feels like {{ weather_data.temp_feels_like }}°F)
+      </div>
+
+      <div class="weather-item">
+        <strong>Min Temperature:</strong> {{ weather_data.temp_min }}°F
+      </div>
+
+      <div class="weather-item">
+        <strong>Max Temperature:</strong> {{ weather_data.temp_max }}°F
+      </div>
+
+      <div class="weather-item">
+        <strong>Humidity:</strong> {{ weather_data.humidity }}%
+      </div>
+
+      <div class="weather-item">
+        <strong>Wind Speed:</strong> {{ weather_data.wind_speed }} m/s
+      </div>
+
+      <div class="weather-item">
+        <strong>Wind Direction:</strong> {{ weather_data.wind_deg }}°
+      </div>
+
+      <div class="weather-item">
+        <strong>Cloudiness:</strong> {{ weather_data.cloudiness }}%
+      </div>
+
+      <div class="weather-item">
+        <strong>Sunrise:</strong> {{ weather_data.sunrise_time }}
+      </div>
+
+      <div class="weather-item">
+        <strong>Sunset:</strong> {{ weather_data.sunset_time }}
+      </div>
+    </div>
+  {% else %}
+    <p>Sorry, there was an error fetching the weather data.</p>
+  {% endif %}
+  
+{% endblock %}
