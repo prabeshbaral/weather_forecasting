@@ -4,7 +4,7 @@
 __pycache__/
 db.sqlite3
 *.log
-*.env
+#*.env
 *.pot
 *.py[cod]
 *.so
