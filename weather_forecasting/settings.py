@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-=@k(4beaea7#nb@(bc%@!)sctplk@j()11)9!yy!cw_qw6x!)*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'yourdomain.com']
+ALLOWED_HOSTS =  ['127.0.0.1', '.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -70,7 +70,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "weather_forecasting.wsgi.application"
+WSGI_APPLICATION = "weather_forecasting.wsgi.app"
+
 
 
 # Database
