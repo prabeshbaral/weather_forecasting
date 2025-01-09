@@ -1,27 +1,24 @@
 {
-"version": 2,
-"builds": [
-  {
-    "src": "manage.py",
-    "use": "@vercel/python",
-    "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-  },
-  {
-    "src": "build_files.sh",
-    "use": "@vercel/mystaticfiles",
-    "config": {
-      "distDir": "mystaticfiles"
+  "version": 2,
+  "builds": [
+    {
+      "src": "manage.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    },
+    {
+      "src": "mystaticfiles/**",
+      "use": "@vercel/static"
     }
-  }
-],
-"routes": [
-  {
-    "src": "/static/(.*)",
-    "dest": "/static/$1"
-  },
-  {
-    "src": "/(.*)",
-    "dest": "weather_forecasting/wsgi.py"
-  }
-]
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/mystaticfiles/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "weather_forecasting/weather_forecasting/wsgi.py"
+    }
+  ]
 }
