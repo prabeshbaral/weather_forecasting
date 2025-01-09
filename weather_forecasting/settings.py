@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "weather_forecasting.wsgi.app"
+WSGI_APPLICATION = "weather_forecasting.wsgi.application"
 
 
 
@@ -122,7 +122,6 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR/'mystaticfiles'
 STATIC_URL = '/static/'
-
 
 
 # Default primary key field type
